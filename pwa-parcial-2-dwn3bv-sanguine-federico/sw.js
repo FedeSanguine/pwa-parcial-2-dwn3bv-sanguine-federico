@@ -1,6 +1,7 @@
 const nombreCache = 'pwa-gxgames-archivos-cache';
 const archivos = ['/',
                 'index.html',
+                'compra.html',
                 'css/bootstrap.min.css',
                 'css/styles.css',
                 'js/bootstrap.bundle.min.js',

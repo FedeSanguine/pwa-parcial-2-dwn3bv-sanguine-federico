@@ -4,7 +4,43 @@ window.addEventListener('DOMContentLoaded', function () {
     }
 })
 
+window.addEventListener('online', function(){
+    let main = document.querySelector(".modal-contenedor");
+    let metaT = document.querySelector("meta[name=theme-color]");
+    let proce = document.querySelector(".proce");
+    let advertencia = document.querySelector(".advertencia");
+    
+    if(this.navigator.onLine){
+        metaT.setAttribute("content", "#343a40")
+        main.classList.remove("offline")
 
+        caches.open("pwa-gxgames-archivos-cache").then(cache => {
+            cache.add("compra.html")
+        })
+
+        proce.classList.remove("none")
+        advertencia.classList.add("none")
+     }
+})
+window.addEventListener('offline', function(){
+    let main = document.querySelector(".modal-contenedor");
+    let metaT = document.querySelector("meta[name=theme-color]");
+    let proce = document.querySelector(".proce");
+    let advertencia = document.querySelector(".advertencia");
+
+        if(!this.navigator.onLine){
+            metaT.setAttribute("content", "red")
+            main.classList.add("offline")
+
+            caches.open("pwa-gxgames-archivos-cache").then(cache => {
+                cache.delete("compra.html")
+            })
+
+            proce.classList.add("none")
+
+            advertencia.classList.remove("none")
+        }
+})
 
 productos();
 
