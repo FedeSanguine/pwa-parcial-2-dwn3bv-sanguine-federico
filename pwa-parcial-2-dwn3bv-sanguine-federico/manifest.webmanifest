@@ -1,0 +1,32 @@
+{
+    "theme_color": "#12ce86",
+    "background_color": "#12ce86",
+    "display": "standalone",
+    "scope": "/pwa-parcial-1-dwn3bv-sanguine/",
+    "start_url": "/pwa-parcial-1-dwn3bv-sanguine/index.html",
+    "name": "GxGames | Tienda de Videojuegos",
+    "short_name": "GxGames",
+    "description": "Tienda de Videojuegos",
+    "icons": [
+        {
+            "src": "imagenes/icons/icon-192x192.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "imagenes/icons/icon-256x256.png",
+            "sizes": "256x256",
+            "type": "image/png"
+        },
+        {
+            "src": "imagenes/icons/icon-384x384.png",
+            "sizes": "384x384",
+            "type": "image/png"
+        },
+        {
+            "src": "imagenes/icons/icon-512x512.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ]
+}

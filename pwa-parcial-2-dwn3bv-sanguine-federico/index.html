@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="imagenes/logo/logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="manifest" href="manifest.webmanifest">
+    <title>GxGames</title>
+</head>
+
+<body>
+    <header>
+        <h1>GxGames - Tienda de Videojuegos</h1>
+    </header>
+
+    <main>
+        <h2>Los <span>mejores juegos</span> al mejor <span>precio</span></h2>
+
+
+        <div id="instalacion" class="w-100">
+            <div
+                class="h-100 d-flex justify-content-center align-items-center xs-col-12 col-lg-7 xxl-col-5 contenedor-instalar-app">
+                <p>Descarga nuestra <span>app</span> para comprar en cualquier <span>dispositivo</span></p>
+                <button type="button" id="botonInstalar">Instalar app</button>
+            </div>
+        </div>
+
+
+        <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner d-flex">
+                <div class="carousel-item active">
+                    <picture>
+                        <source media="(min-width: 1400px)" srcset="imagenes/banner/xl/banner-2.jpg">
+                        <source media="(min-width: 1200px)" srcset="imagenes/banner/xl/banner-2.jpg">
+                        <source media="(min-width: 992px)" srcset="imagenes/banner/xl/banner-2.jpg">
+                        <source media="(min-width: 768px)" srcset="imagenes/banner/xs/banner-2.jpg">
+                        <source media="(min-width: 576px)" srcset="imagenes/banner/xs/banner-2.jpg">
+                        <img class="img-fluid" src="imagenes/banner/xs/banner-2.jpg"
+                            alt="Banner ilustrativo personajes juegos">
+                    </picture>
+                </div>
+                <div class="carousel-item">
+                    <picture>
+                        <source media="(min-width: 1400px)" srcset="imagenes/banner/xl/banner-1.jpg">
+                        <source media="(min-width: 1200px)" srcset="imagenes/banner/xl/banner-1.jpg">
+                        <source media="(min-width: 992px)" srcset="imagenes/banner/xl/banner-1.jpg">
+                        <source media="(min-width: 768px)" srcset="imagenes/banner/xs/banner-1.jpg">
+                        <source media="(min-width: 576px)" srcset="imagenes/banner/xs/banner-1.jpg">
+                        <img class="img-fluid" src="imagenes/banner/xs/banner-1.jpg"
+                            alt="Banner ilustrativo imagen Videojuegos">
+                    </picture>
+                </div>
+                <div class="carousel-item">
+                    <picture>
+                        <source media="(min-width: 1400px)" srcset="imagenes/banner/xl/banner-3.jpg">
+                        <source media="(min-width: 1200px)" srcset="imagenes/banner/xl/banner-3.jpg">
+                        <source media="(min-width: 992px)" srcset="imagenes/banner/xl/banner-3.jpg">
+                        <source media="(min-width: 768px)" srcset="imagenes/banner/xs/banner-3.jpg">
+                        <source media="(min-width: 576px)" srcset="imagenes/banner/xs/banner-3.jpg">
+                        <img class="img-fluid" src="imagenes/banner/xs/banner-3.jpg"
+                            alt="Banner ilustrativo fifa 22">
+                    </picture>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="div-boton-carrito">
+            <div id="contenedor-boton">
+                <button id="boton-carrito"><span id="contadorCarrito">0</span></button>
+            </div>
+        </div>
+
+        <div id="conteiner" class="m-auto">
+            <h2>Catalogo:</h2>
+        </div>
+        <div id="productos"></div>
+
+
+        <div class="modal-contenedor">
+            <div class="modal-carrito">
+                <h3>Carrito</h3>
+                <button id="carritoCerrar">X</button>
+                <div id="carrito-contenedor"></div>
+                <p class="precioTotalCarrito-p">Precio total: <span id="signo-pesos">$<span
+                            id="precioTotalCarrito">0</span></span></p>
+                            <li><button id="limpiarFiltro">Deshacer</button></li>
+                <button id="vaciar-carrito" class="boton-agregar">Vaciar carrito</button>
+            </div>
+        </div>
+    </main>
+
+
+    <footer>
+        <div class="row w-100 m-auto">
+            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
+                <h2>Materia</h2>
+                <ul>
+                    <li>Aplicaciones Web Progresivas</li>
+                    <li>Diseño y Desarrollo Web</li>
+                </ul>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
+                <h2></h2>
+                <ul>
+                    <li></li>
+                    <li>DWN3BV</li>
+                </ul>
+            </div>
+        </div>
+
+
+        <p>&#169; 2023</p>
+    </footer>
+
+
+
+
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>
