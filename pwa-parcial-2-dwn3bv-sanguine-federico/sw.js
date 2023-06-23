@@ -5,6 +5,9 @@ const archivos = ['/',
                 'css/bootstrap.min.css',
                 'css/styles.css',
                 'js/bootstrap.bundle.min.js',
+                'js/compra.js',
+                'js/pedido.js',
+                'js/carrito.js',
                 'js/main.js'
 ];
 
