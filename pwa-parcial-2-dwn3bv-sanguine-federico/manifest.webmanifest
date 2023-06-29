@@ -1,7 +1,7 @@
 {
     "theme_color": "#12ce86",
     "background_color": "#12ce86",
-    "display": "standalone",
+    "display": "fullscreen",
     "scope": "/pwa-parcial-2-dwn3bv-sanguine-federico/",
     "start_url": "/pwa-parcial-2-dwn3bv-sanguine-federico/index.html",
     "name": "GxGames | Tienda de Videojuegos",

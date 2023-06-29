@@ -14,11 +14,7 @@ p {
     margin-bottom: 0rem;
 }
 
-header {
-    background: url('../imagenes/logo/logo.png') no-repeat center center;
-    background-color: black;
-    height: 5vh;
-}
+
 
 h1 {
     font-size: 0;
@@ -39,6 +35,10 @@ h2 span {
 }
 
 
+.vender table{
+    background:#302b63;
+    color:white;
+}
 
 /* BANNERS */
 .carousel.pointer-event {
@@ -46,21 +46,9 @@ h2 span {
 }
 
 
-ul {
-    padding-left: 0rem;
-}
-
-nav div ul {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    list-style-type: none;
-}
 
 .navbar {
-    margin-top: 5em;
     text-align: center;
-    display: inline;
 }
 
 

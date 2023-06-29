@@ -2,83 +2,165 @@ window.addEventListener('DOMContentLoaded', function () {
     if ('serviceWorker' in navigator) {
         navigator.serviceWorker.register('sw.js');
     }
+
+    const productos = [
+    {
+        id:1,
+        nombre: "Mortal Kombat 11",
+        imagen: "imagenes/productos/mk11.jpg",
+        precio: "5850",
+        consola: "PS4",
+        descripcion: "Juego de pelea, uno o dos jugadores"
+    },
+    {
+        id:2,
+        nombre: "Fifa 22",
+        imagen: "imagenes/productos/fifa.jpg",
+        precio: "9000",
+        consola: "PS4",
+        descripcion: "Juego de futbol de uno o dos jugadores con modo online"
+    },
+    {
+        id:3,
+        nombre: "Elden Ring",
+        imagen: "imagenes/productos/elden.jpg",
+        precio: "9500",
+        consola: "PS4",
+        descripcion: "Juego de accion y aventura de mundo abierto"
+    },
+    {
+        id:4,
+        nombre: "Call of duty Modern",
+        imagen: "imagenes/productos/cod.png",
+        precio: "8000",
+        consola: "Xbox One",
+        descripcion: "Juego de disparos y accion de un jugador con modo online"
+    },
+    {
+        id:5,
+        nombre: "GTA V",
+        imagen: "imagenes/productos/gta.png",
+        precio: "7500",
+        consola: "Xbox One",
+        descripcion: "Juego de accion y aventura de mundo abierto"
+    },
+    {
+        id:6,
+        nombre: "Battlefield V",
+        imagen: "imagenes/productos/battle.png",
+        precio: "5000",
+        consola: "Xbox One",
+        descripcion: "Juego de accion y disparos de un jugador"
+    },
+
+];
+    localStorage.setItem('productos',JSON.stringify(productos));
+    
 })
 
+
+
+
+let eventoInstalar;
+let botonInstalar = document.getElementById('botonInstalar');
+let divInstalar = document.getElementById('instalacion');
+
 window.addEventListener('online', function(){
-    let main = document.querySelector(".modal-contenedor");
+    let header = document.querySelector(".encabezado");
     let metaT = document.querySelector("meta[name=theme-color]");
     let proce = document.querySelector(".proce");
-    let advertencia = document.querySelector(".advertencia");
+
     
     if(this.navigator.onLine){
         metaT.setAttribute("content", "#343a40")
-        main.classList.remove("offline")
+        header.classList.remove("offline")
 
         caches.open("pwa-gxgames-archivos-cache").then(cache => {
             cache.add("compra.html")
         })
 
         proce.classList.remove("none")
-        advertencia.classList.add("none")
      }
 })
 window.addEventListener('offline', function(){
-    let main = document.querySelector(".modal-contenedor");
+    let header = document.querySelector(".encabezado");
     let metaT = document.querySelector("meta[name=theme-color]");
     let proce = document.querySelector(".proce");
-    let advertencia = document.querySelector(".advertencia");
+
 
         if(!this.navigator.onLine){
             metaT.setAttribute("content", "red")
-            main.classList.add("offline")
+            header.classList.add("offline")
 
             caches.open("pwa-gxgames-archivos-cache").then(cache => {
                 cache.delete("compra.html")
             })
 
             proce.classList.add("none")
-
-            advertencia.classList.remove("none")
         }
 })
 
+const obtenerDataVender = async () => {
+    try {
+      let url = 'https://jsonplaceholder.typicode.com/users/';
+      const response = await fetch(url);
+      const dataVender = await response.json();
+      mostrarData(dataVender);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  
+  const mostrarData = (dataVender) => {
+    console.log(dataVender);
+    let body = "";
+    for (let i = 0; i < dataVender.length; i++) {
+      body += `<tr><td>${dataVender[i].id}</td><td>${dataVender[i].name}</td><td>${dataVender[i].email}</td></tr>`;
+    }
+    document.getElementById('dataVender').innerHTML = body;
+    console.log(body);
+  };
+  
+  obtenerDataVender();
 
 
-function ampliarProducto(e) {
-    fetch('productos.json')
-        .then(respuesta => respuesta.json())
-        .then(json => {
-            let productos = document.getElementById('productos');
-            productos.innerHTML = '';
-            let producto = json.find(prod => prod.id === e);
-
-            let html = `<button onclick="productos()" id="boton-volver-amplio">Volver</button>
-                        <div id="producto-amplio">
-                            <div class="contenedor-producto-amplio d-flex justify-content-center align-items-center row">
-                                
-                                <div class="col-xs-6 col-md-5 text-center">
-                                    <img class="img-fluid img-ampliada" src="${producto.imagen}" alt="${producto.nombre}">
-                                </div>
-                                    
-                                
-                                <div class="d-flex flex-wrap col-xs-6 col-md-7 justify-content-between detalle-datos">
-                                    <h3 id="nombreDetalle">${producto.nombre}</h3>
-                                    <p id="descripcionDetalle">${producto.descripcion}</p>
-                                    <p class="col-12 precioDetalle">$${producto.precio}</p>
-                                    <p id="consolaDetalle">Categoría: ${producto.consola}</p>
-                                        
-                                    <button onclick="agregarCarrito(${producto.id}, event)" class="boton-agregar boton-detalle">Agregar a Carrito</button>
-                                </div>
-
-                            </div>
-                        </div>`
-
-            productos.innerHTML = html;
-
-        })
 
 
-}
+  let formulario = document.getElementById('formulario');
+  let respuesta = document.getElementById('respuesta');
+
+formulario.addEventListener('submit', function(e){
+    e.preventDefault();
+    console.log('me diste un click')
+
+    var datos = new FormData(formulario);
+
+    console.log(datos)
+    console.log(datos.get('usuario'))
+    console.log(datos.get('pass'))
+
+    fetch('login.php',{
+        method: 'POST',
+        body: datos
+    })
+        .then( res => res.json())
+        .then( data => {
+            console.log(data)
+            if(data === 'error'){
+                respuesta.innerHTML = `
+                <div class="alert alert-danger" role="alert">
+                    Llena todos los campos
+                </div>
+                `
+            }else{
+                respuesta.innerHTML = `
+                <div class="alert alert-primary" role="alert">
+                    ${data}
+                </div>
+                `
+            }
+        } )
+})
 
 
 

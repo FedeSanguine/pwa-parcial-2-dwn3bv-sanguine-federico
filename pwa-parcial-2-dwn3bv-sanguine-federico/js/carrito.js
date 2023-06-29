@@ -15,7 +15,7 @@ class Carrito {
     leerDatosProducto(producto){
         const infoProducto = {
             imagen : producto.querySelector('img').src,
-            titulo: producto.querySelector('h4').textContent,
+            titulo: producto.querySelector('h2').textContent,
             precio: producto.querySelector('.precio span').textContent,
             id: producto.querySelector('a').getAttribute('data-id'),
             cantidad: 1
@@ -26,6 +26,7 @@ class Carrito {
             if(productoLS.id === infoProducto.id){
                 productosLS = productoLS.id;
             }
+        localStorage.setItem('productoSeleccionado', JSON.stringify(infoProducto));
         });
 
         if(productosLS === infoProducto.id){
@@ -155,6 +156,7 @@ class Carrito {
             listaCompra.appendChild(row);
         });
     }
+
 
     //Eliminar producto por ID del LS
     eliminarProductoLocalStorage(productoID){

@@ -3,101 +3,200 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport"
+    content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta name="theme-color" >    
     <link rel="shortcut icon" href="imagenes/logo/logo.png" type="image/x-icon">
     <link rel="stylesheet" href="css/bootstrap.min.css">
+    <script src="js/popper.min.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/sweetalert2.min.css">
     <link rel="manifest" href="manifest.webmanifest">
     <title>GxGames</title>
-</head>
 
 <body>
     <header>
-        <h1>GxGames - Tienda de Videojuegos</h1>
+        <div class="container">
+            <div class="row align-items-stretch justify-content-between">
+                <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark  barra">
+                    <a class="navbar-brand text-center" href="#">GxGames</a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
+                        aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarCollapse">
+                        <ul class="navbar-nav mr-auto">
+                            <li class="nav-item dropdown">
+                                <img src="imagenes/iconografia/cart.jpeg" class="nav-link dropdown-toggle img-fluid" height="70px"
+                                    width="70px" href="compra.html" id="dropdown01" data-toggle="dropdown" aria-haspopup="true"
+                                    aria-expanded="false"></img>
+                                <div id="carrito" class="dropdown-menu" aria-labelledby="navbarCollapse">
+                                    <table id="lista-carrito" class="table">
+                                        <thead>
+                                            <tr>
+                                                <th>Imagen</th>
+                                                <th>Nombre</th>
+                                                <th>Precio</th>
+                                                <th></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody></tbody>
+                                    </table>
+
+                                    <a href="#" id="vaciar-carrito" class="btn btn-primary btn-block">Vaciar Carrito</a>
+                                    <a href="#" id="procesar-pedido" class="btn btn-danger btn-block proce">Procesar
+                                        Compra</a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div id="instalacion" class="w-100">
+                        <div
+                            class="h-100 d-flex justify-content-center align-items-center xs-col-12 col-lg-7 xxl-col-5 contenedor-instalar-app">
+                            <p>Descarga nuestra <span>app</span> para comprar en cualquier <span>dispositivo</span></p>
+                            <button type="button" id="botonInstalar">Instalar app</button>
+                        </div>
+                    </div>
+                    <a class="navbar-brand text-center" href="vender.html">Vender Juegos</a>
+                    <a class="navbar-brand text-center" href="login.html">Login</a>
+                </nav>
+            </div>
+        </div>              
     </header>
-
+    
     <main>
-        <h2>Los <span>mejores juegos</span> al mejor <span>precio</span></h2>
-
-
-        <div id="instalacion" class="w-100">
-            <div
-                class="h-100 d-flex justify-content-center align-items-center xs-col-12 col-lg-7 xxl-col-5 contenedor-instalar-app">
-                <p>Descarga nuestra <span>app</span> para comprar en cualquier <span>dispositivo</span></p>
-                <button type="button" id="botonInstalar">Instalar app</button>
+            <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 my-4 mx-auto text-center">
+                <h1 class="display-4 mt-5">Lista de Productos</h1>
+                <p class="lead">Los mejores juegos del mercado</p>
             </div>
-        </div>
+    
+            <div class="container" id="lista-productos">
 
-
-        <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
-            <div class="carousel-inner d-flex">
-                <div class="carousel-item active">
-                    <picture>
-                        <source media="(min-width: 1400px)" srcset="imagenes/banner/xl/banner-2.jpg">
-                        <source media="(min-width: 1200px)" srcset="imagenes/banner/xl/banner-2.jpg">
-                        <source media="(min-width: 992px)" srcset="imagenes/banner/xl/banner-2.jpg">
-                        <source media="(min-width: 768px)" srcset="imagenes/banner/xs/banner-2.jpg">
-                        <source media="(min-width: 576px)" srcset="imagenes/banner/xs/banner-2.jpg">
-                        <img class="img-fluid" src="imagenes/banner/xs/banner-2.jpg"
-                            alt="Banner ilustrativo personajes juegos">
-                    </picture>
+                <div class="card-deck mb-3 text-center">
+                    
+                    <div class="card mb-4 shadow-sm">
+                        <div class="card-header">
+                            <h2 class="my-0 font-weight-bold">Mortal Kombat 11</h2>
+                        </div>
+                        <div class="card-body">
+                            <img src="imagenes/productos/mk11.jpg" class="card-img-top">
+                           
+    
+                            <ul class="list-unstyled mt-3 mb-4">
+                                <li></li>
+                                <li>Fisico</li>
+                                <li>PS4</li>
+                                <li> <h3 class="card-title pricing-card-title precio">ARS$ <span class="">5850</span></h3></li>
+                            </ul>
+                            <a href="" class="btn btn-block btn-primary agregar-carrito" id="botonComprar" data-id="1">Comprar</a>
+                            <a href="detalle.html?id=1" class="btn btn-block btn-primary">Ver detalle</a>
+                        </div>
+                    </div>
+    
+                    <div class="card mb-4 shadow-sm">
+                        <div class="card-header">
+                            <h2 class="my-0 font-weight-bold">Fifa 22</h2>
+                        </div>
+                        <div class="card-body">
+                            <img src="imagenes/productos/fifa.jpg" class="card-img-top">
+                            
+    
+                            <ul class="list-unstyled mt-3 mb-4">
+                                <li></li>
+                                <li>Fisico</li>
+                                <li>PS4</li>
+                                <li><h3 class="card-title pricing-card-title precio">ARS$ <span class="">9000</span></h3></li>
+                            </ul>
+                            <a href="" class="btn btn-block btn-primary agregar-carrito" data-id="2">Comprar</a>
+                            <a href="detalle.html?id=2" class="btn btn-block btn-primary ver-detalle">Ver detalle</a>
+                        </div>
+                    </div>
+    
+                    <div class="card mb-4 shadow-sm">
+                        <div class="card-header">
+                            <h2 class="my-0 font-weight-bold">Elden Ring</h2>
+                        </div>
+                        <div class="card-body">
+                            <img src="imagenes/productos/elden.jpg" class="card-img-top">
+                           
+    
+                            <ul class="list-unstyled mt-3 mb-4">
+                                <li></li>
+                                <li>Fisico</li>
+                                <li>PS4</li>
+                                <li><h3 class="card-title pricing-card-title precio">ARS$ <span class="">9500</span></h3></li>
+                            </ul>
+                            <a href="" class="btn btn-block btn-primary agregar-carrito" data-id="3">Comprar</a>
+                            <a href="detalle.html?id=3" class="btn btn-block btn-primary ver-detalle" data-id="3">Ver detalle</a>
+                        </div>
+                    </div>
+    
                 </div>
-                <div class="carousel-item">
-                    <picture>
-                        <source media="(min-width: 1400px)" srcset="imagenes/banner/xl/banner-1.jpg">
-                        <source media="(min-width: 1200px)" srcset="imagenes/banner/xl/banner-1.jpg">
-                        <source media="(min-width: 992px)" srcset="imagenes/banner/xl/banner-1.jpg">
-                        <source media="(min-width: 768px)" srcset="imagenes/banner/xs/banner-1.jpg">
-                        <source media="(min-width: 576px)" srcset="imagenes/banner/xs/banner-1.jpg">
-                        <img class="img-fluid" src="imagenes/banner/xs/banner-1.jpg"
-                            alt="Banner ilustrativo imagen Videojuegos">
-                    </picture>
+                
+                <div class="card-deck mb-3 text-center">
+                    
+                    <div class="card mb-4 shadow-sm">
+                        <div class="card-header">
+                            <h2 class="my-0 font-weight-bold">Call of duty Modern Warfare</h2>
+                        </div>
+                        <div class="card-body">
+                            <img src="imagenes/productos/cod.png"  class="card-img-top">
+
+    
+                            <ul class="list-unstyled mt-3 mb-4">
+                                <li></li>
+                                <li>Fisico</li>
+                                <li>Xbox One</li>
+                                <li><h3 class="card-title pricing-card-title precio">ARS$ <span class="">8000</span></h3></li>
+                            </ul>
+                            <a href="" class="btn btn-block btn-primary agregar-carrito" data-id="4">Comprar</a>
+                            <a href="detalle.html?id=4" class="btn btn-block btn-primary ver-detalle" data-id="4">Ver detalle</a>
+                        </div>
+                    </div>
+    
+                    <div class="card mb-4 shadow-sm">
+                        <div class="card-header">
+                            <h2 class="my-0 font-weight-bold">GTA V </h2>
+                        </div>
+                        <div class="card-body">
+                            <img src="imagenes/productos/gta.png" class="card-img-top">
+                            
+    
+                            <ul class="list-unstyled mt-3 mb-4">
+                                <li></li>
+                                <li>Fisico</li>
+                                <li>Xbox One</li>
+                                <li><h3 class="card-title pricing-card-title precio">ARS$ <span class="">7500</span></h3></li>
+                            </ul>
+                            <a href="" class="btn btn-block btn-primary agregar-carrito" data-id="5">Comprar</a>
+                            <a href="detalle.html?id=5" class="btn btn-block btn-primary ver-detalle" data-id="5">Ver detalle</a>
+                        </div>
+                    </div>
+    
+                    <div class="card mb-4 shadow-sm">
+                        <div class="card-header">
+                            <h2 class="my-0 font-weight-bold">Battlefield V</h2>
+                        </div>
+                        <div class="card-body">
+                            <img src="imagenes/productos/battle.png" class="card-img-top">
+                            
+    
+                            <ul class="list-unstyled mt-3 mb-4">
+                                <li></li>
+                                <li>Fisico</li>
+                                <li>Xbox One</li>
+                                <li><h3 class="card-title pricing-card-title precio">ARS$ <span class="">5000</span></h3></li>
+                            </ul>
+                            <a href="" class="btn btn-block btn-primary agregar-carrito" data-id="6">Comprar</a>
+                            <a href="detalle.html?id=6" class="btn btn-block btn-primary ver-detalle" data-id="6" >Ver detalle</a>
+                        </div>
+                    </div>
+    
                 </div>
-                <div class="carousel-item">
-                    <picture>
-                        <source media="(min-width: 1400px)" srcset="imagenes/banner/xl/banner-3.jpg">
-                        <source media="(min-width: 1200px)" srcset="imagenes/banner/xl/banner-3.jpg">
-                        <source media="(min-width: 992px)" srcset="imagenes/banner/xl/banner-3.jpg">
-                        <source media="(min-width: 768px)" srcset="imagenes/banner/xs/banner-3.jpg">
-                        <source media="(min-width: 576px)" srcset="imagenes/banner/xs/banner-3.jpg">
-                        <img class="img-fluid" src="imagenes/banner/xs/banner-3.jpg"
-                            alt="Banner ilustrativo fifa 22">
-                    </picture>
+ 
                 </div>
-            </div>
-        </div>
-
-
-        <div class="div-boton-carrito">
-            <div id="contenedor-boton">
-                <button id="boton-carrito"><span id="contadorCarrito">0</span></button>
-            </div>
-        </div>
-
-        <div id="conteiner" class="m-auto">
-            <h2>Catalogo:</h2>
-        </div>
-        <div class="alert alert-danger advertencia  none display-8 mt-4" role="alert">
-            <p>Podras continuar con la compra cuando vuelvas a tener conexion a internet</p>
-          </div>
-        <div id="productos"></div>
-
-
-        <div class="modal-contenedor">
-            <div class="modal-carrito">
-                <h3>Carrito</h3>
-                <button id="carritoCerrar">X</button>
-                <div id="carrito-contenedor"></div>
-                <p class="precioTotalCarrito-p">Precio total: <span id="signo-pesos">$<span
-                            id="precioTotalCarrito">0</span></span></p>
-                            <li><button id="limpiarFiltro">Deshacer</button></li>
-                <button id="vaciar-carrito" class="boton-agregar">Vaciar carrito</button>
-                <button id="procesar-pedido" class="btn btn-danger btn-block proce">Procesar compra</button>
-
-            </div>
-        </div>
-    </main>
+        </main>
 
 
     <footer>
@@ -125,8 +224,13 @@
 
 
 
+    <script src="js/jquery-3.4.1.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
+    <script src="js/sweetalert2.min.js"></script>
+    <script src="js/carrito.js"></script>
+    <script src="js/pedido.js"></script>
     <script src="js/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
 </body>
 
 </html>
