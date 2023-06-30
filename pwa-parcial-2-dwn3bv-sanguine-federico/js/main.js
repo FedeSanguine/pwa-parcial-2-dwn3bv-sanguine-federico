@@ -3,67 +3,93 @@ window.addEventListener('DOMContentLoaded', function () {
         navigator.serviceWorker.register('sw.js');
     }
 
-    const productos = [
+    const productosDetalle = [
     {
         id:1,
         nombre: "Mortal Kombat 11",
-        imagen: "imagenes/productos/mk11.jpg",
-        precio: "5850",
+        foto: "imagenes/productos/mk11.jpg",
+        valor: "5850",
         consola: "PS4",
         descripcion: "Juego de pelea, uno o dos jugadores"
     },
     {
         id:2,
         nombre: "Fifa 22",
-        imagen: "imagenes/productos/fifa.jpg",
-        precio: "9000",
+        foto: "imagenes/productos/fifa.jpg",
+        valor: "9000",
         consola: "PS4",
         descripcion: "Juego de futbol de uno o dos jugadores con modo online"
     },
     {
         id:3,
         nombre: "Elden Ring",
-        imagen: "imagenes/productos/elden.jpg",
-        precio: "9500",
+        foto: "imagenes/productos/elden.jpg",
+        valor: "9500",
         consola: "PS4",
         descripcion: "Juego de accion y aventura de mundo abierto"
     },
     {
         id:4,
         nombre: "Call of duty Modern",
-        imagen: "imagenes/productos/cod.png",
-        precio: "8000",
+        foto: "imagenes/productos/cod.png",
+        valor: "8000",
         consola: "Xbox One",
         descripcion: "Juego de disparos y accion de un jugador con modo online"
     },
     {
         id:5,
         nombre: "GTA V",
-        imagen: "imagenes/productos/gta.png",
-        precio: "7500",
+        foto: "imagenes/productos/gta.png",
+        valor: "7500",
         consola: "Xbox One",
         descripcion: "Juego de accion y aventura de mundo abierto"
     },
     {
         id:6,
         nombre: "Battlefield V",
-        imagen: "imagenes/productos/battle.png",
-        precio: "5000",
+        foto: "imagenes/productos/battle.png",
+        valor: "5000",
         consola: "Xbox One",
         descripcion: "Juego de accion y disparos de un jugador"
     },
 
 ];
-    localStorage.setItem('productos',JSON.stringify(productos));
+    localStorage.setItem('productosDetalle',JSON.stringify(productosDetalle));
     
-})
-
-
-
-
 let eventoInstalar;
 let botonInstalar = document.getElementById('botonInstalar');
 let divInstalar = document.getElementById('instalacion');
+
+function instalarApp() {
+    if (eventoInstalar) {
+        eventoInstalar.prompt();
+        eventoInstalar.userChoice
+            .then(respuesta => {
+                if (respuesta.outcome == 'accepted') {
+                    console.log('El usuario acepto instalar la app');
+                    divInstalar.style.display = 'none';
+                } else {
+                    console.log('El usuario no acepto instalar la app');
+                }
+            })
+    }
+}
+
+function mostrarBtnInstalar() {
+    if (botonInstalar != undefined) {
+        divInstalar.style.display = 'block';
+        botonInstalar.addEventListener('click', instalarApp)
+    }
+}
+window.addEventListener('beforeinstallprompt', e => {
+    e.preventDefault();
+    eventoInstalar = e;
+    mostrarBtnInstalar();
+})
+
+})
+
+
 
 window.addEventListener('online', function(){
     let header = document.querySelector(".encabezado");
@@ -164,32 +190,6 @@ formulario.addEventListener('submit', function(e){
 
 
 
-function instalarApp() {
-    if (eventoInstalar) {
-        eventoInstalar.prompt();
-        eventoInstalar.userChoice
-            .then(respuesta => {
-                if (respuesta.outcome == 'accepted') {
-                    console.log('El usuario acepto instalar la app');
-                    divInstalar.style.display = 'none';
-                } else {
-                    console.log('El usuario no acepto instalar la app');
-                }
-            })
-    }
-}
-
-function mostrarBtnInstalar() {
-    if (botonInstalar != undefined) {
-        divInstalar.style.display = 'block';
-        botonInstalar.addEventListener('click', instalarApp)
-    }
-}
-window.addEventListener('beforeinstallprompt', e => {
-    e.preventDefault();
-    eventoInstalar = e;
-    mostrarBtnInstalar();
-})
 
 
 

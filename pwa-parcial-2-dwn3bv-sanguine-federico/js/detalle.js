@@ -4,7 +4,7 @@
 window.addEventListener('DOMContentLoaded', function () {
     const parametro = new URLSearchParams(location.search);
     const productoId = parametro.get('id');
-    var productos = JSON.parse(localStorage.getItem('productos'));
+    var productos = JSON.parse(localStorage.getItem('productosDetalle'));
     const producto = productos.find(item =>productoId == item.id);
 
     console.log(producto);
@@ -17,11 +17,11 @@ window.addEventListener('DOMContentLoaded', function () {
            
            <div class="card mb-4 shadow-sm">
                <div class="card-header">
-                   <h4 class="my-0 font-weight-bold">${producto.nombre}</h4>
+                   <h2 class="my-0 font-weight-bold">${producto.nombre}</h2>
                </div>
                <div class="card-body m-auto">
-                   <img src="${producto.imagen}" class="card-img-top w-30">
-                   <h1 class="card-title pricing-card-title precio">ARS$ <span class="">${producto.precio}</span></h1>
+                   <img src="${producto.foto}" class="card-img-top w-30">
+                   <h3 class="card-title pricing-card-title precio">ARS$ <span class="">${producto.valor}</span></h3>
 
                    <ul class="list-unstyled mt-3 mb-4">
                        <li></li>
